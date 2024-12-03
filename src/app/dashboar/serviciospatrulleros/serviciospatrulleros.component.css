@@ -1,0 +1,272 @@
+.containerlistapatrulleros{
+display: flex;
+flex-direction: column;
+
+}
+
+.container{
+  display: flex;
+  justify-content: center;
+}
+
+p{
+ color: rgb(104, 103, 103);
+ font-family: 'Times New Roman';
+}
+
+.id{
+  border: solid 1px black;
+  position: relative;
+}
+.subboxid{
+  width: 3%;
+}
+
+.cajabox{
+  display: flex;
+}
+
+.subboxid{
+  border-right: solid 1px black;
+}
+
+.cajanombre{
+  width: 60%;
+}
+
+
+.uumm{
+  width: 15%;
+  border-right: solid 1px white;
+}
+
+.nombres{
+  display: flex;
+  justify-content: space-between;
+  color: gray;
+  font-family: 'Times New Roman', Times, serif;
+  border-bottom: solid 1px rgb(111, 110, 110);
+}
+
+.subnombre{
+  border-right: solid 1px white;
+}
+
+.cargo{
+border-left: solid 1px ;
+width: 20%;
+overflow: hidden;
+}
+
+
+.mat-icon-add{
+  color: rgb(81, 81, 82);
+}
+.btnefectivosdisponibles{
+
+}
+
+.btnefectivosdisponibles :hover{
+  background-color: #7c9bf2;
+  border-radius: 10px;
+}
+
+.button-add{
+  position: relative;
+  color: rgb(29, 222, 103);
+  opacity: 50%;
+}
+
+button{
+  background-color: transparent;
+  border: none;
+}
+.mat-icon-deleted, .mat-icon-edid{
+  font-size: 15px;
+}
+.mat-icon-deleted:hover, .mat-icon-edid:hover{
+  color: rgb(87, 209, 39);
+}
+
+.cont-lis-efec-disp{
+  display: flex;
+  justify-content: center;
+}
+
+.cont-lis-efec-disp >:nth-child(1){
+  background-color: rgb(239, 246, 246);
+  width: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  transition:0.5s;
+  padding: 5px;
+}
+
+@media (max-width: 480px) {
+  .cont-lis-efec-disp > :nth-child(1) {
+    width: 05px;
+    height: 100px;
+    background: rgb(109, 184, 254);
+    position: absolute;
+    top: auto;
+    left: 0;
+    overflow: hidden; /* Oculta el contenido excedente */
+  }
+
+  .cont-lis-efec-disp > :nth-child(1) > * { /* Selecciona todos los elementos hijos */
+    opacity: 0; /* Hace que el contenido sea invisible */
+    pointer-events: none; /* Evita que los elementos sean interactuables */
+  }
+
+  .cont-lis-efec-disp > :nth-child(1):hover {
+    width: 150px;
+    height: auto;
+    background-color:rgba(76, 113, 186, 0.1);
+    backdrop-filter: blur(3px);
+    color: white;
+    border: solid 1px;
+  }
+  .cont-lis-efec-disp > :nth-child(1):hover > * {
+    opacity: 1; /* Restaura la visibilidad del contenido */
+    pointer-events: auto; /* Restaura la interactividad */
+  }
+}
+
+.tex{
+  padding-left: 10px;
+}
+
+.tex:hover{
+  color: rgb(71, 93, 140);
+}
+
+.peloton{
+  border: solid 1px black;
+}
+
+
+.editmobil{
+  background-color: rgb(139, 141, 158);
+  color: rgb(249, 250, 249);
+  width: 100%;
+  height: 100%;
+}
+
+
+.editmobil:hover{
+  background-color: rgb(201, 246, 205);
+  color: black;
+}
+
+.editpuestopat:hover{
+  background-color: rgb(201, 246, 205);
+  color: black;
+}
+
+
+.uummdisponibles{
+  background-color: rgb(239, 246, 246);
+  width: 150px;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.uummdisponibles div{
+  color: gray;
+}
+
+
+@media(max-width:480px){
+  .uummdisponibles{
+  width: 10px;
+  height: 100px;
+  background: rgb(109, 184, 254);
+  position: absolute;
+  top: auto;
+  right: 0;
+  overflow: hidden;
+
+}
+.uummdisponibles>*{
+  opacity: 0;
+}
+}
+.colorcambiante{
+  background-color: yellow; /* Cambia según el efecto deseado */
+  transition: background-color 0.5s ease-in-out;
+}
+.divselectpeloton select{
+  color: rgb(120, 129, 129);
+
+}
+.divselectpeloton button{
+  background: #a0aaa7;
+  border: none;
+  color: white;
+
+}
+.navserviciosgeneral{
+  background-color: #040e0d;
+  width: 100%;
+  font-size: 10px;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.navserviciosgeneral div{
+  animation-duration: 3s;
+  animation-name: slidein;
+  animation-iteration-count: initial;
+  margin-left: 20px;
+  color: #038475;
+  overflow: hidden;
+  position: relative;
+}
+
+@keyframes slidein{
+0%{
+  margin-left: 100%;
+
+}50%{
+  margin-left: 0%;
+
+}50%{
+  margin-left: 100%;
+}
+}
+.addpuesto{
+  width: 100%;
+  height: 20px;
+  background-color: rgb(6, 137, 6);
+  border-radius: 5px;
+}
+.addpuesto:hover{
+  background-color: rgb(184, 223, 124);
+  transition: 0.5¿3s;
+
+}
+.eliminar{
+width: 1%;
+height: 10px;
+position: absolute;
+bottom: 0;
+left: 0;
+background-color: red;
+}
+.mat-icon-deleted{
+  color: red;
+}
+
+.mat-icon-deleted-cabe{
+  font-size: 15px;
+  position: absolute;
+  transition: 0.3s ease-in-out;
+}
+
+.mat-icon-deleted-cabe:active{
+  font-size: 40px;
+}
+
+
+
+

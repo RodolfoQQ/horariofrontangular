@@ -1,0 +1,28 @@
+.boxcontainer{
+  width: auto;
+  height: auto;
+  background-color: rgb(214, 158, 158);
+  padding: 5px;
+}
+
+.boxcontainer > div:nth-child(1){
+  height: 10%;
+  width: 100%;
+  background-color: rgb(94, 93, 93);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+}
+button{
+  border: none;
+  background: transparent;
+}
+mat-icon{
+  font-size: 20px;
+}
+mat-icon:hover{
+  color: greenyellow;
+  transition: 0.5s;
+}
+

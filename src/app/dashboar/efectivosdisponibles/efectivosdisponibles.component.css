@@ -1,0 +1,32 @@
+.boxcontainer{
+  width: auto;
+  height: auto;
+  background-color: rgb(214, 158, 158);
+  padding: 5px;
+
+
+}
+.boxcontainer > div:nth-child(1){
+  height: 10%;
+  width: 100%;
+  background-color: rgb(94, 93, 93);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding-top: 2%;
+}
+.person_add{
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+}
+.person_add:hover{
+color: rgb(25, 198, 25);
+
+}
+
+button{
+  background-color: transparent;
+  border: none;
+
+}

@@ -1,0 +1,18 @@
+<div class="boxcontainer">
+  <div>
+    Lista de patrulleros disponibles
+  </div>
+<div class="uummdisponibles">
+  @for (item of dtomobiles; track $index) {
+    <div>
+      <span class="colorcambiante">
+        {{item.idunidadmobil}} {{item.descripcion}} {{item.nombreestado}}
+      </span>
+       <button (click)="updatemobilencabecera(item.idunidadmobil)"> <mat-icon> published_with_changes</mat-icon> </button></div>
+  }
+</div>
+</div>
+
+
+
+

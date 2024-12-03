@@ -1,0 +1,12 @@
+<div class="dialogcinfirmacioneliminacion">
+  <h2>!Se eliminaran todo los datos de esta casilla!!</h2>
+  <div class="dialogconfirm">
+    @if (mostrarexito) {
+    <div>  <mat-icon class="check_circle">check_circle</mat-icon></div>
+    }@else {
+      <button (click)="eliminarcabecera()"> confirmar</button>
+      <button (click)="cancelar()" >cancelar</button>
+
+    }
+  </div>
+</div>

@@ -1,0 +1,256 @@
+<nav class="navserviciosgeneral">
+  <div>Servicio de personal pnp </div>
+</nav>
+<marquee> holas me llamo rodolfo</marquee>
+<div class="inputspost">
+  <form class="form" [formGroup]="postForm">
+    <div class="inputoption">
+      <div>
+        <div>
+          <span>Cargo</span>
+        </div>
+        <div>
+          <select name="idcargo" formControlName="idcargo">
+            @for (item of cargo; track $index) {
+            <option value={{item.idcargo}}>{{ item.nombrecargo }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          @if (isvalid("idcargo")) {
+          <small>seleccione uno</small>
+          }
+        </div>
+        <div>
+          @if (isvalidsuccefull("idcargo")) {
+          <span>&#10004;</span>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="inputoption">
+      <div>
+        <div>
+          <span>Grado</span>
+        </div>
+        <div>
+          <select name="idgrado" formControlName="idgrado">
+            <option>Seleccione uno</option>
+            @for (item of grado; track $index) {
+            <option value={{item.idgrado}}>{{ item.nombregrado }}</option>
+            }
+          </select>
+        </div>
+      </div>
+      <div>
+        <div>
+          @if (isvalid("idgrado")) {
+          <small>Seleccione un grado</small>
+          }
+        </div>
+        <div>
+          @if (isvalidsuccefull("idgrado")) {
+          <span>&#10004;</span>
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="inputoption">
+      <div>
+        <div>
+          <span>Área de Trabajo</span>
+        </div>
+        <div>
+          <select name="idareatrabajo" formControlName="idareatrabajo">
+            <option>Seleccione uno</option>
+            @for (item of area; track $index) {
+            <option value={{item.idareatrabajo}}>{{ item.descripcion }}</option>
+            }
+          </select>
+        </div>
+      </div>
+      <div>
+        <div>
+          @if (isvalid("idareatrabajo")) {
+          <small>Seleccione un área</small>
+          }
+        </div>
+        <div>
+          @if (isvalidsuccefull("idareatrabajo")) {
+          <span>&#10004;</span>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="inputoption">
+      <div>
+        <div>
+          <span>Estado</span>
+        </div>
+        <div><select name="idestado" formControlName="idestado">
+            <option>Seleccione uno</option>
+            @for (item of estado; track $index) {
+            <option value={{item.idestado}}>{{ item.nombreestado }}</option>
+            }
+          </select> </div>
+      </div>
+      <div>
+        <div>
+          @if (isvalid("idestado")) {
+          <small>Seleccione un estado</small>
+          }
+        </div>
+        <div>
+          @if (isvalidsuccefull("idestado")) {
+          <span>&#10004;</span>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="inputoption">
+      <div>
+        <div><span>Apellido</span></div>
+        <div>
+          <input type="text" name="apellido" formControlName="apellido" placeholder="Apellido">
+        </div>
+
+      </div>
+      <div>
+        <div>
+          @if (isvalid("apellido")) {
+          <small>El apellido es requerido</small>
+          }
+        </div>
+        <div>
+          @if (isvalidsuccefull("apellido")) {
+          <span>&#10004;</span>
+          }
+        </div>
+      </div>
+
+    </div>
+
+    <div class="inputoption">
+      <div>
+        <div>
+          <span>Nombre</span>
+        </div>
+        <div>
+          <input type="text" name="nombre" formControlName="nombre" placeholder="Nombre">
+        </div>
+        </div>
+        <div>
+          <div>
+            @if (isvalid("nombre")) {
+            <small>El nombre es requerido</small>
+            }
+          </div>
+          <div>
+            @if (isvalidsuccefull("nombre")) {
+            <span>&#10004;</span>
+            }
+          </div>
+        </div>
+
+    </div>
+@if (!opcionvalue) {
+  <div class="inputoption">
+    <div>
+      <div>
+        <span>cip</span>
+      </div>
+      <div>
+        <input type="text" name="cip" formControlName="cip" placeholder="Nombre">
+      </div>
+      </div>
+      <div>
+        <div>
+          @if (isvalid("cip")) {
+          <small>El cip es requerido</small>
+          }
+        </div>
+        <div>
+          @if (isvalidsuccefull("cip")) {
+          <span>&#10004;</span>
+          }
+        </div>
+      </div>
+  </div>
+}
+
+    @if (!opcionvalue) {
+      <button (click)="guardar()"> enviar datos</button>
+    }@else {
+      <button (click)="actualizar()">actualizar</button>
+    }
+    <button (click)="limpiarcampos()">
+      nuevo
+    </button>
+  </form>
+</div>
+<div>
+  <div class="boxpelotones">
+    <div  class="peloton">
+      <div><span>Peloton Alfa</span></div>
+      <table>
+        <thead></thead>
+        <tbody>
+          @for (item of alfa; track $index) {
+          <tr>
+            <td>{{item.nombregrado}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido}}</td>
+            <td>{{item.nombrecargo}}</td>
+            <td>{{item.peloton}}</td>
+            <td>{{item.estado}}</td>
+             <td><button (click)="actualizarpnp(item)">actualizar </button></td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="peloton">
+      <div><span>Peloton Beta</span></div>
+      <table>
+        <thead></thead>
+        <tbody>
+          @for (item of beta; track $index) {
+          <tr>
+            <td>{{item.nombregrado}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido}}</td>
+            <td>{{item.nombrecargo}}</td>
+            <td>{{item.peloton}}</td>
+            <td>{{item.estado}}</td>
+            <td><button (click)="actualizarpnp(item)">actualizar </button></td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+    <div class="peloton">
+      <div ><span>Peloton Gama</span></div>
+      <table>
+        <tbody>
+          @for (item of gama; track $index) {
+          <tr>
+            <td>{{item.nombregrado}}</td>
+            <td>{{item.nombre}}</td>
+            <td>{{item.apellido}}</td>
+            <td>{{item.nombrecargo}}</td>
+            <td>{{item.peloton}}</td>
+            <td>{{item.estado}}</td>
+            <td><button (click)="actualizarpnp(item)">actualizar </button></td>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+
+
+  </div>
+</div>

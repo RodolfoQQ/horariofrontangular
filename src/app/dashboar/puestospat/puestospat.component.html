@@ -1,0 +1,27 @@
+
+
+<div class="boxcontainer">
+  <div>
+    Lista de efectivos Puestos disponibles
+  </div>
+    peloton alfa
+  <table>
+    <thead>
+      <tr>
+      </tr>
+    </thead>
+    <tbody>
+      @for (puesto of puestos; track $index) {
+      <tr>
+        <td>
+          <span class="colorcambiante">
+            {{puesto.descripcionpuesto}}
+          </span>
+        </td>
+        <td>
+        <button (click)="cambiarpuestopatrullaje(cabepuesto,puesto.idpuesto)" ><mat-icon> published_with_changes</mat-icon> </button></td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

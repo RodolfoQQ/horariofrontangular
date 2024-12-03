@@ -1,0 +1,98 @@
+<div>
+  <div class="container">
+    <nav class="navserviciosgeneral">
+        <div>Servicio de patrulleros </div>
+    </nav>
+  </div>
+
+  <div class="cont-lis-efec-disp">
+    <div>
+      @if (efectivosdisponiblesdata.length>0) {
+            @for (item of efectivosdisponiblesdata; track $index) {
+              <p>{{item.nombregrado}} {{item.nombre}} {{item.apellido}}</p>
+            }
+          }@else {
+            <p>no hay efectivos</p>
+          }
+    </div>
+
+    <div class="container">
+
+      <div class="containerlistapatrulleros">
+        <div class="divselectpeloton">
+          <select id="peloton">
+            <option value="alfa">alfa</option>
+            <option value="beta">beta</option>
+            <option value="gama">gama</option>
+          </select>
+          <button (click)="getpeloto()" class="peloton">
+            selecionar peloton
+          </button>
+        </div>
+        @for (idcabe of listadetalle; track $index) {
+          <div class="id">
+            <div class="cajabox">
+              @if (!habilitabooneliminartodoslospnp) {
+                    <button
+                    (click)="openDialog(idcabe)">
+                    <mat-icon  class="mat-icon-deleted-cabe">deleted</mat-icon>
+                     </button>
+                }
+              <div class="subboxid"> {{idcabe.idcabecerapuesto}}
+                  <button class="btnefectivosdisponibles"  (click)="efectivosdisponibles(idcabe.idcabecerapuesto)">
+                    <mat-icon  class="button-add">add</mat-icon>
+                  </button>
+              </div>
+
+              <div class="cajanombre">
+
+                  @for (pnp of idcabe.efectivos; track $index) {
+                    @if (pnp.areatrabajo.descripcion==peloton){
+                      <div class="nombres">
+                        <div> {{pnp.grado.nombregrado}}{{pnp.apellido}} {{pnp.nombre}}
+                        </div>
+                        <div> <button (click)="quitarpnpdecabecera(pnp.cip)"><mat-icon class="mat-icon-deleted">deleted</mat-icon> </button></div>
+                        <div class="cargo">{{pnp.cargo.nombrecargo}}</div>
+                      </div>
+                    }
+                  }
+              </div>
+
+              <div class="uumm">
+                    @if (idcabe?.mobil?.descripcion) {
+                      <button class="editmobil" (click)="abrirdialogmobilesdisponibles(idcabe.idcabecerapuesto, idcabe.mobil.idunidadmobil,idcabe.mobil.descripcion)">
+                       {{idcabe.mobil.descripcion}}</button>
+                      }@else {
+                        <button (click)="abrirdialogsinvparametros(idcabe.idcabecerapuesto)">asigne una unidad</button>
+                      }
+              </div>
+              <div class="puesto">
+                <div>
+                  @if(idcabe?.puesto?.descripcionpuesto){
+                    <button class="editpuestopat" (click)="abrirdialogpuestopat(idcabe.puesto.idpuesto, idcabe.idcabecerapuesto)">{{idcabe.puesto.descripcionpuesto}}</button>
+                    }@else {
+                      <button (click)="abrirdialogpuestosinasignar(idcabe.idcabecerapuesto)">asigne un puesto</button>
+                  }
+                </div>
+              </div>
+             </div>
+          </div>
+        }
+
+        <button class="addpuesto"(click)="anadircabecera()" >
+          add
+        </button>
+      </div>
+      <div class="uummdisponibles">
+          @for (item of dtomobilesdisponibles; track $index) {
+            <div class="">
+              <span class="">{{item.descripcion}}</span>
+            </div>
+          }
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
