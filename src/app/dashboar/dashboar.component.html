@@ -1,17 +1,19 @@
-<nav  class="navbarmneuprincipal">
-  <div>
-    <button (click)="iraserviciospatrulleros()" > Servicio</button>
-    <button (click)="irpersonal()">Personal</button>
-    <button>Mobiles</button>
-    <button>Puestos</button>
-  </div>
-  <div>
-  </div>
+<div class="container">
 
-</nav>
-<footer>
-  <div></div>
-  <div></div>
-</footer>
+  <div>
+    <nav  class="navbarmneuprincipal">
 
-<router-outlet></router-outlet>
+          <button (click)="iraserviciospatrulleros()" > Servicio</button>
+          <button (click)="irpersonal()">Personal</button>
+          <button>Mobiles</button>
+          <button>Puestos</button>
+
+
+      </nav>
+
+  </div>
+  <router-outlet></router-outlet>
+
+
+
+</div>

@@ -30,6 +30,7 @@ export class ServiciospatrullerosComponent {
   listpnp:Pnp[]=[]
   dtomobilesdisponibles:Dtomobiles[]=[]
   cabecera!:Cabecerapuesto
+  pnpsfiltradossinparametros!:Dtopnp[]
 
   //variable para validar sss
   listapnpcabe_area!:Pnp[]
@@ -39,16 +40,24 @@ export class ServiciospatrullerosComponent {
   constructor(private servicedetalle:ServiciosService, private dialog:MatDialog, private servicepnp:PnpService){}
 
   ngOnInit(): void {
-
+    this.dtopnpsinparametros()
     this.mobilesdisponibles();
   }
 
   dataefectivosdisponibles(){
     this.servicedetalle.pnpdisponiblesporpeloton(this.peloton).subscribe(data=>{
        this.efectivosdisponiblesdata=data
+
     })
   }
 
+  dtopnpsinparametros(){
+    this.servicepnp.dtopnpsinparametros().subscribe(
+      data=>{
+        this.pnpsfiltradossinparametros=data
+      }
+    )
+  }
 
 
   openDialog(idcabe:Cabecerapuesto) {

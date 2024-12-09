@@ -1,3 +1,6 @@
+*{
+  font-weight: bold;
+}
 
 .navserviciosgeneral{
   background-color: #DEF7F5;
@@ -102,9 +105,11 @@ justify-content: center;
 
     }
     button{
-      background-color: black;
-      color: #c8eae6;
+      background-color: rgb(111, 179, 118);
+      color: white;
+      border: none;
       border-radius: 10px;
+      padding: 10px;
     }
 
     button:hover{

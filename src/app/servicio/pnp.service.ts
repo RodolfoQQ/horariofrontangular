@@ -55,6 +55,9 @@ export class PnpService {
     return this.http.get<Pnp[]>(`${this.url}pnpporpelotonyarea/${idcabe}/${area}`)
   }
 
+  dtopnpsinparametros():Observable<Dtopnp[]>{
+      return this.http.get<Dtopnp[]>(`${this.url}dtopnpsinparametros`)
+  }
 
 
 

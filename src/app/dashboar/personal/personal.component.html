@@ -1,7 +1,7 @@
 <nav class="navserviciosgeneral">
   <div>Servicio de personal pnp </div>
 </nav>
-<marquee> holas me llamo rodolfo</marquee>
+<marquee> Servicio efectivos PNP</marquee>
 <div class="inputspost">
   <form class="form" [formGroup]="postForm">
     <div class="inputoption">
@@ -185,7 +185,7 @@
     @if (!opcionvalue) {
       <button (click)="guardar()"> enviar datos</button>
     }@else {
-      <button (click)="actualizar()">actualizar</button>
+      <button (click)="actualizar()">Editar</button>
     }
     <button (click)="limpiarcampos()">
       nuevo
@@ -207,7 +207,7 @@
             <td>{{item.nombrecargo}}</td>
             <td>{{item.peloton}}</td>
             <td>{{item.estado}}</td>
-             <td><button (click)="actualizarpnp(item)">actualizar </button></td>
+             <td><button (click)="actualizarpnp(item)">editar </button></td>
           </tr>
           }
         </tbody>
@@ -226,7 +226,7 @@
             <td>{{item.nombrecargo}}</td>
             <td>{{item.peloton}}</td>
             <td>{{item.estado}}</td>
-            <td><button (click)="actualizarpnp(item)">actualizar </button></td>
+            <td><button (click)="actualizarpnp(item)">editar </button></td>
           </tr>
           }
         </tbody>
@@ -244,7 +244,7 @@
             <td>{{item.nombrecargo}}</td>
             <td>{{item.peloton}}</td>
             <td>{{item.estado}}</td>
-            <td><button (click)="actualizarpnp(item)">actualizar </button></td>
+            <td><button (click)="actualizarpnp(item)">Editar </button></td>
           </tr>
           }
         </tbody>
