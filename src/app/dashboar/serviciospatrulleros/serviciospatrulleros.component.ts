@@ -80,7 +80,6 @@ export class ServiciospatrullerosComponent {
           this.habilitabooneliminartodoslospnp = true;
           //si existen datos abre el dialog
           this.abrirdialogsiexisteonoelboton(idcabe)
-
       }else{
           console.log("no existe datos--->");
           this.habilitabooneliminartodoslospnp = false;
@@ -111,6 +110,7 @@ export class ServiciospatrullerosComponent {
     dialig.afterClosed().subscribe(()=>{
       this.dataefectivosdisponibles();
       this.listadetallepeusto()
+      this.mobilesdisponibles();
 
     })
 
@@ -174,7 +174,7 @@ export class ServiciospatrullerosComponent {
 
   abrirdialogmobilesdisponibles(idcabecera:number, idmobil:number,descmobil:string){
    const dialog= this.dialog.open(UummdisponiblesComponent,{
-      data:{
+        data:{
         idcabe:idcabecera,//envia solo el idcabecera
         idmobil:idmobil,// envia solo el id mobil
         descmobil:descmobil,//
@@ -184,8 +184,11 @@ export class ServiciospatrullerosComponent {
     dialog.afterClosed().subscribe(()=>{
       this.dataefectivosdisponibles();
       this.listadetallepeusto()
-      this.mobilesdisponibles()
+      this.mobilesdisponibles();
+
     })
+
+    console.log(" cabecera "+idcabecera)
   }
 
 

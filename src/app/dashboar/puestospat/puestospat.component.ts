@@ -39,6 +39,7 @@ constructor(private service:ServiciosService, private dialog:MatDialog,
   cambiarpuestopatrullaje(cabepuesto:number,idpuesto:number){
     this.service.updatepuestoencabe(idpuesto,cabepuesto).subscribe(()=>{
       console.log("actualizado")
+      this.dialog.closeAll();
     })
 
   }

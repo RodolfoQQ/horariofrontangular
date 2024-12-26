@@ -1,4 +1,3 @@
-
   <div class="container">
     <nav class="navserviciosgeneral">
         <div>Servicio de patrulleros </div>
@@ -14,7 +13,6 @@
     <button (click)="getpeloto()" >
       selecionar peloton
     </button>
-
     <button class="addpuesto"(click)="anadircabecera()" >
       añadir slot
     </button>
@@ -30,9 +28,7 @@
             <p>no hay efectivos</p>
           }
         </div>
-
     <div class="container">
-
       <div class="containerlistapatrulleros">
         @for (idcabe of listadetalle; track $index) {
           @if(idcabe.efectivos.length>0){
@@ -45,7 +41,7 @@
                        </button>
                   }
 
-                <div class="subboxid"> {{idcabe.idcabecerapuesto}}
+                <div class="subboxid">
                     <button class="btnefectivosdisponibles"  (click)="efectivosdisponibles(idcabe.idcabecerapuesto)">
                       <mat-icon  class="button-add">add</mat-icon>
                     </button>
@@ -56,7 +52,7 @@
                     @for (pnp of idcabe.efectivos; track $index) {
                       @if (pnp.areatrabajo.descripcion==peloton){
                         <div class="nombres">
-                          <div> {{pnp.grado.nombregrado}}{{pnp.apellido}} {{pnp.nombre}}
+                          <div> {{pnp.grado.nombregrado}} {{pnp.apellido}} {{pnp.nombre}}
                           </div>
                           <div> <button (click)="quitarpnpdecabecera(pnp.cip)"><mat-icon class="mat-icon-deleted">deleted</mat-icon> </button></div>
                           <div class="cargo">{{pnp.cargo.nombrecargo}}</div>
@@ -98,13 +94,13 @@
                          </button>
                     }
 
-                  <div class="subboxid"> {{idcabe.idcabecerapuesto}}
+                  <div class="subboxid">
                       <button class="btnefectivosdisponibles"  (click)="efectivosdisponibles(idcabe.idcabecerapuesto)">
                         <mat-icon  class="button-add">add</mat-icon>
                       </button>
                   </div>
-                  <div class="cajanombre">
 
+                  <div class="cajanombre">
                     @if(idcabe.efectivos.length>0){
                       @for (pnp of idcabe.efectivos; track $index) {
                         @if (pnp.areatrabajo.descripcion==peloton){
@@ -121,8 +117,6 @@
                       <p> disponible a eliminar</p>
                     </div>
                     }
-
-
                   </div>
                   <div class="uumm">
                         @if (idcabe?.mobil?.descripcion) {
@@ -151,11 +145,17 @@
           </div>
         </div>
         <div class="uummdisponibles">
-          @for (item of dtomobilesdisponibles; track $index) {
-          <div class="">
-            <span class="">{{item.descripcion}}</span>
-          </div>
-        }
+
+          @if (dtomobilesdisponibles.length) {
+            @for (item of dtomobilesdisponibles; track $index) {
+            <div class="">
+              <span class="">{{item.descripcion}}</span>
+            </div>
+          }
+          }@else {
+            <div>no hay unidades mobiles disponibles</div>
+          }
+
     </div>
   </div>
 

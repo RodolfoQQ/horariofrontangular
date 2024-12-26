@@ -77,7 +77,7 @@ overflow: hidden;
   color: rgb(81, 81, 82);
 }
 .btnefectivosdisponibles{
-
+  padding-top: 10px;
 }
 
 .btnefectivosdisponibles :hover{

@@ -12,7 +12,7 @@ import { Puesto } from '../dashboar/models/Puesto';
 })
 export class ServiciosService {
 
-  url:string="http://localhost:8080/api/"
+  url:string="http://143.110.147.193:8080/api/"
 
   constructor(private http:HttpClient){}
 

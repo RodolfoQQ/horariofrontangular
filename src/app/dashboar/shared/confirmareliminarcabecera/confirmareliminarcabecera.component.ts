@@ -19,6 +19,12 @@ export class ConfirmareliminarcabeceraComponent {
     console.log("la id cabecera a eliminar es  "+this.data.idcabe)
     this.servicedetalle.eliminarcabecera(this.data.idcabe).subscribe(()=>{
       this.mostrarexito=true
+
+      setTimeout(() => {
+        this.dialog.closeAll()
+      }, 1000);
+
+
     })
 
   }
