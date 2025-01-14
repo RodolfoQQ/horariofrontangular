@@ -12,7 +12,7 @@ import { Puesto } from '../dashboar/models/Puesto';
 })
 export class ServiciosService {
 
-  url:string="http://143.110.147.193:8080/api/"
+  url:string="https://143.110.147.193:8080/api/"
 
   constructor(private http:HttpClient){}
 
@@ -48,7 +48,7 @@ export class ServiciosService {
   quitarpnpencabecera(cip:string):Observable<Pnp>{
     return this.http.put<Pnp>(`${this.url}quitarpnp/${cip}`,null)
   }
-
+//lala
   listapnpporidcabypeloton(peloton:string,cabecera:number):Observable<Pnp[]>{
     return this.http.get<Pnp[]>(`${this.url}pnppeltoncabe/${peloton}/${cabecera}`)
   }
