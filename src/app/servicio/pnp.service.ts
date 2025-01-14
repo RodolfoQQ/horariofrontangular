@@ -14,7 +14,10 @@ import { Pnp } from '../dashboar/models/Pnp';
 })
 export class PnpService {
 
-  url:string="https://143.110.147.193:8080/pnp/"
+  //url:string="http://143.110.147.193:8080/pnp/"
+
+   url: string = "https://horario.developer-rod.com/pnp/";
+
 
   constructor(private http:HttpClient) { }
  listapnpdtoporpeloton(peloton:string):Observable<Dtopnp[]>{

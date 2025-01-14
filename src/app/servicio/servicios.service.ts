@@ -12,7 +12,7 @@ import { Puesto } from '../dashboar/models/Puesto';
 })
 export class ServiciosService {
 
-  url:string="https://143.110.147.193:8080/api/"
+  url:string="https://horario.developer-rod.com/api/"
 
   constructor(private http:HttpClient){}
 
