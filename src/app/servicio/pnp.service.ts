@@ -14,9 +14,9 @@ import { Pnp } from '../dashboar/models/Pnp';
 })
 export class PnpService {
 
-  //url:string="http://143.110.147.193:8080/pnp/"
 
    url: string = "https://horario.developer-rod.com/pnp/";
+  //  url:string="http://localhost:8080/pnp/"
 
 
   constructor(private http:HttpClient) { }

@@ -1,256 +1,336 @@
-<nav class="navserviciosgeneral">
-  <div>Servicio de personal pnp </div>
-</nav>
-<marquee> Servicio efectivos PNP</marquee>
-<div class="inputspost">
-  <form class="form" [formGroup]="postForm">
-    <div class="inputoption">
+<div class="container">
+  <mat-toolbar color="primary">
+    <span class="servipersonal">Servicio de Personal</span>
+  </mat-toolbar>
+</div>
+<mat-accordion>
+  <mat-expansion-panel (click)="cerrarpanel()" [expanded]="panelOpenState()">
+    <mat-expansion-panel-header>
+      <mat-panel-title>Panel de Registro</mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <form class="form" [formGroup]="postForm">
+    <div class="formControlName">
+
       <div>
-        <div>
-          <span>Cargo</span>
-        </div>
-        <div>
-          <select name="idcargo" formControlName="idcargo">
+        <mat-form-field>
+          <mat-label>Cargo</mat-label>
+          <mat-select name="idcargo" formControlName="idcargo">
             @for (item of cargo; track $index) {
-            <option value={{item.idcargo}}>{{ item.nombrecargo }}</option>
+              <mat-option [value]="item.idcargo">{{ item.nombrecargo }}</mat-option>
             }
-          </select>
-        </div>
+          </mat-select>
+        </mat-form-field>
+
+
+        <div class="inputoption">
+
+        @if (isvalid("idcargo")) { <small>Seleccione uno</small> }
+        @if (isvalidsuccefull("idcargo")) { <span>&#10004;</span> }
+      </div>
+
+      <mat-form-field>
+        <mat-label>Grado</mat-label>
+        <mat-select name="idgrado" formControlName="idgrado">
+          @for (item of grado; track $index) {
+            <mat-option [value]="item.idgrado">{{ item.nombregrado }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+   <div>
+
+     @if (isvalid("idgrado")) { <small>Seleccione un grado</small> }
+      @if (isvalidsuccefull("idgrado")) { <span>&#10004;</span> }
+   </div>
       </div>
 
       <div>
-        <div>
-          @if (isvalid("idcargo")) {
-          <small>seleccione uno</small>
-          }
-        </div>
-        <div>
-          @if (isvalidsuccefull("idcargo")) {
-          <span>&#10004;</span>
-          }
-        </div>
-      </div>
-    </div>
-    <div class="inputoption">
-      <div>
-        <div>
-          <span>Grado</span>
-        </div>
-        <div>
-          <select name="idgrado" formControlName="idgrado">
-            <option>Seleccione uno</option>
-            @for (item of grado; track $index) {
-            <option value={{item.idgrado}}>{{ item.nombregrado }}</option>
-            }
-          </select>
-        </div>
-      </div>
-      <div>
-        <div>
-          @if (isvalid("idgrado")) {
-          <small>Seleccione un grado</small>
-          }
-        </div>
-        <div>
-          @if (isvalidsuccefull("idgrado")) {
-          <span>&#10004;</span>
-          }
-        </div>
-      </div>
-    </div>
-
-    <div class="inputoption">
-      <div>
-        <div>
-          <span>Área de Trabajo</span>
-        </div>
-        <div>
-          <select name="idareatrabajo" formControlName="idareatrabajo">
-            <option>Seleccione uno</option>
+        <mat-form-field>
+          <mat-label>Pelotón</mat-label>
+          <mat-select name="idareatrabajo" formControlName="idareatrabajo">
+            <mat-option>Seleccione uno</mat-option>
             @for (item of area; track $index) {
-            <option value={{item.idareatrabajo}}>{{ item.descripcion }}</option>
+              <mat-option [value]="item.idareatrabajo">{{ item.descripcion }}</mat-option>
             }
-          </select>
-        </div>
-      </div>
-      <div>
+          </mat-select>
+        </mat-form-field>
         <div>
-          @if (isvalid("idareatrabajo")) {
-          <small>Seleccione un área</small>
-          }
+          @if (isvalid("idareatrabajo")) { <small>Seleccione un área</small> }
+          @if (isvalidsuccefull("idareatrabajo")) { <span>&#10004;</span> }
         </div>
-        <div>
-          @if (isvalidsuccefull("idareatrabajo")) {
-          <span>&#10004;</span>
-          }
-        </div>
-      </div>
-    </div>
-    <div class="inputoption">
-      <div>
-        <div>
-          <span>Estado</span>
-        </div>
-        <div><select name="idestado" formControlName="idestado">
-            <option>Seleccione uno</option>
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+          <mat-select name="idestado" formControlName="idestado">
+            <mat-option>Seleccione uno</mat-option>
             @for (item of estado; track $index) {
-            <option value={{item.idestado}}>{{ item.nombreestado }}</option>
+              <mat-option [value]="item.idestado">{{ item.nombreestado }}</mat-option>
             }
-          </select> </div>
+          </mat-select>
+        </mat-form-field>
+        <div>
+        @if (isvalid("idestado")) { <small>Seleccione un estado</small> }
+        @if (isvalidsuccefull("idestado")) { <span>&#10004;</span> }
       </div>
-      <div>
-        <div>
-          @if (isvalid("idestado")) {
-          <small>Seleccione un estado</small>
-          }
-        </div>
-        <div>
-          @if (isvalidsuccefull("idestado")) {
-          <span>&#10004;</span>
-          }
-        </div>
       </div>
-    </div>
-    <div class="inputoption">
+
       <div>
-        <div><span>Apellido</span></div>
+        <mat-form-field>
+          <mat-label>Apellido</mat-label>
+          <input matInput type="text" name="apellido" formControlName="apellido">
+        </mat-form-field>
         <div>
-          <input type="text" name="apellido" formControlName="apellido" placeholder="Apellido">
+          @if (isvalid("apellido")) { <small>El apellido es requerido</small> }
+          @if (isvalidsuccefull("apellido")) { <span>&#10004;</span> }
         </div>
+        <mat-form-field>
+          <mat-label>Nombre</mat-label>
+          <input matInput type="text" name="nombre" formControlName="nombre">
+        </mat-form-field>
+       <div>
+         @if (isvalid("nombre")) { <small>El nombre es requerido</small> }
+         @if (isvalidsuccefull("nombre")) { <span>&#10004;</span> }
+
+       </div>
 
       </div>
       <div>
-        <div>
-          @if (isvalid("apellido")) {
-          <small>El apellido es requerido</small>
+        @if (!opcionvalue) {
+
+
+            <mat-form-field>
+              <mat-label>CIP</mat-label>
+              <input matInput type="text" name="cip" formControlName="cip">
+            </mat-form-field>
+           <div>
+
+             @if (isvalid("cip")) { <small>El CIP es requerido</small> }
+             @if (isvalidsuccefull("cip")) { <span>&#10004;</span> }
+
+           </div>
+
+        }
+      </div>
+      <mat-card    appearance="outlined">
+        <mat-card-content class="outlined">
+          @if (!opcionvalue) {
+            <button color="primary" mat-stroked-button (click)="guardar()">Enviar datos</button>
+          } @else {
+            <button mat-stroked-button (click)="actualizar()">Editar</button>
           }
-        </div>
-        <div>
-          @if (isvalidsuccefull("apellido")) {
-          <span>&#10004;</span>
-          }
-        </div>
+          <button mat-stroked-button (click)="limpiarcampos()">Nuevo</button>
+
+        </mat-card-content>
+      </mat-card>
+
       </div>
 
-    </div>
 
-    <div class="inputoption">
-      <div>
-        <div>
-          <span>Nombre</span>
-        </div>
-        <div>
-          <input type="text" name="nombre" formControlName="nombre" placeholder="Nombre">
-        </div>
-        </div>
-        <div>
-          <div>
-            @if (isvalid("nombre")) {
-            <small>El nombre es requerido</small>
-            }
-          </div>
-          <div>
-            @if (isvalidsuccefull("nombre")) {
-            <span>&#10004;</span>
-            }
-          </div>
-        </div>
-
-    </div>
-@if (!opcionvalue) {
-  <div class="inputoption">
-    <div>
-      <div>
-        <span>cip</span>
-      </div>
-      <div>
-        <input type="text" name="cip" formControlName="cip" placeholder="Nombre">
-      </div>
-      </div>
-      <div>
-        <div>
-          @if (isvalid("cip")) {
-          <small>El cip es requerido</small>
-          }
-        </div>
-        <div>
-          @if (isvalidsuccefull("cip")) {
-          <span>&#10004;</span>
-          }
-        </div>
-      </div>
-  </div>
-}
-
-    @if (!opcionvalue) {
-      <button (click)="guardar()"> enviar datos</button>
-    }@else {
-      <button (click)="actualizar()">Editar</button>
-    }
-    <button (click)="limpiarcampos()">
-      nuevo
-    </button>
   </form>
-</div>
-<div>
-  <div class="boxpelotones">
-    <div  class="peloton">
-      <div><span>Peloton Alfa</span></div>
-      <table>
-        <thead></thead>
-        <tbody>
-          @for (item of alfa; track $index) {
-          <tr>
-            <td>{{item.nombregrado}}</td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.apellido}}</td>
-            <td>{{item.nombrecargo}}</td>
-            <td>{{item.peloton}}</td>
-            <td>{{item.estado}}</td>
-             <td><button (click)="actualizarpnp(item)">editar </button></td>
-          </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-    <div class="peloton">
-      <div><span>Peloton Beta</span></div>
-      <table>
-        <thead></thead>
-        <tbody>
-          @for (item of beta; track $index) {
-          <tr>
-            <td>{{item.nombregrado}}</td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.apellido}}</td>
-            <td>{{item.nombrecargo}}</td>
-            <td>{{item.peloton}}</td>
-            <td>{{item.estado}}</td>
-            <td><button (click)="actualizarpnp(item)">editar </button></td>
-          </tr>
-          }
-        </tbody>
-      </table>
-    </div>
-    <div class="peloton">
-      <div ><span>Peloton Gama</span></div>
-      <table>
-        <tbody>
-          @for (item of gama; track $index) {
-          <tr>
-            <td>{{item.nombregrado}}</td>
-            <td>{{item.nombre}}</td>
-            <td>{{item.apellido}}</td>
-            <td>{{item.nombrecargo}}</td>
-            <td>{{item.peloton}}</td>
-            <td>{{item.estado}}</td>
-            <td><button (click)="actualizarpnp(item)">Editar </button></td>
-          </tr>
-          }
-        </tbody>
-      </table>
-    </div>
 
 
-  </div>
-</div>
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-grid-list  cols="12" rowHeight="fit" class="dynamic-height">
+  <mat-grid-tile  class="lateral" colspan="1"> </mat-grid-tile>
+  <mat-grid-tile colspan="10">
+    <mat-tab-group>
+      <mat-tab label="Alfa" class="label">
+        <table mat-table [dataSource]="alfa" class="mat-elevation-z8">
+          <!-- Columna Nombre Grado -->
+          <ng-container matColumnDef="nombregrado">
+            <th mat-header-cell *matHeaderCellDef> Nombre Grado </th>
+            <td mat-cell *matCellDef="let item"> {{ item.nombregrado }} </td>
+          </ng-container>
+
+          <!-- Columna Apellido -->
+          <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef> Apellido </th>
+            <td mat-cell *matCellDef="let item"> {{ item.apellido }} </td>
+          </ng-container>
+
+          <!-- Columna Nombre -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let item"> {{ item.nombre }} </td>
+          </ng-container>
+
+          <!-- Columna Nombre Cargo -->
+          <ng-container matColumnDef="nombrecargo">
+            <th mat-header-cell *matHeaderCellDef> Cargo </th>
+            <td mat-cell *matCellDef="let item"> {{ item.nombrecargo }} </td>
+          </ng-container>
+
+          <!-- Columna Pelotón -->
+          <ng-container matColumnDef="peloton">
+            <th mat-header-cell *matHeaderCellDef> Pelotón </th>
+            <td mat-cell *matCellDef="let item"> {{ item.peloton }} </td>
+          </ng-container>
+
+          <!-- Columna ID Cargo -->
+
+
+          <!-- Columna Estado -->
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let item"> {{ item.estado }} </td>
+          </ng-container>
+
+          <!-- Columna CIP -->
+          <ng-container matColumnDef="cip">
+            <th mat-header-cell *matHeaderCellDef> CIP </th>
+            <td mat-cell *matCellDef="let item"> {{ item.cip }} </td>
+          </ng-container>
+
+          <!-- Columna Acciones -->
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-button (click)="actualizarpnp(item)">Editar</button>
+            </td>
+          </ng-container>
+
+          <!-- Fila de encabezado -->
+          <tr mat-header-row *matHeaderRowDef="['nombregrado','apellido','nombre','nombrecargo','peloton','estado','cip','acciones']"></tr>
+
+          <!-- Fila de datos -->
+          <tr mat-row *matRowDef="let row; columns: ['nombregrado','apellido','nombre','nombrecargo','peloton','estado','cip','acciones']"></tr>
+        </table>
+    </mat-tab>
+    <mat-tab label="Beta">
+      <table mat-table [dataSource]="beta" class="mat-elevation-z8">
+
+        <!-- Columna Nombre Grado -->
+        <ng-container matColumnDef="nombregrado">
+          <th mat-header-cell *matHeaderCellDef> Nombre Grado </th>
+          <td mat-cell *matCellDef="let item"> {{ item.nombregrado }} </td>
+        </ng-container>
+
+        <!-- Columna Apellido -->
+        <ng-container matColumnDef="apellido">
+          <th mat-header-cell *matHeaderCellDef> Apellido </th>
+          <td mat-cell *matCellDef="let item"> {{ item.apellido }} </td>
+        </ng-container>
+
+        <!-- Columna Nombre -->
+        <ng-container matColumnDef="nombre">
+          <th mat-header-cell *matHeaderCellDef> Nombre </th>
+          <td mat-cell *matCellDef="let item"> {{ item.nombre }} </td>
+        </ng-container>
+
+        <!-- Columna Nombre Cargo -->
+
+        <ng-container matColumnDef="nombrecargo">
+          <th mat-header-cell *matHeaderCellDef> Cargo </th>
+          <td mat-cell *matCellDef="let item"> {{ item.nombrecargo }} </td>
+        </ng-container>
+
+        <!-- Columna Pelotón -->
+        <ng-container matColumnDef="peloton">
+          <th mat-header-cell *matHeaderCellDef> Pelotón </th>
+          <td mat-cell *matCellDef="let item"> {{ item.peloton }} </td>
+        </ng-container>
+
+        <!-- Columna ID Cargo -->
+
+
+        <!-- Columna Estado -->
+        <ng-container matColumnDef="estado">
+          <th mat-header-cell *matHeaderCellDef> Estado </th>
+          <td mat-cell *matCellDef="let item"> {{ item.estado }} </td>
+        </ng-container>
+
+        <!-- Columna CIP -->
+        <ng-container matColumnDef="cip">
+          <th mat-header-cell *matHeaderCellDef> CIP </th>
+          <td mat-cell *matCellDef="let item"> {{ item.cip }} </td>
+        </ng-container>
+
+        <!-- Columna Acciones -->
+        <ng-container matColumnDef="acciones">
+          <th mat-header-cell *matHeaderCellDef> Acciones </th>
+          <td mat-cell *matCellDef="let item">
+            <button mat-button (click)="actualizarpnp(item)">Editar</button>
+          </td>
+        </ng-container>
+
+        <!-- Fila de encabezado -->
+        <tr   mat-header-row *matHeaderRowDef="['nombregrado','apellido','nombre','nombrecargo','peloton','estado','cip','acciones']"></tr>
+
+        <!-- Fila de datos -->
+        <tr  mat-row *matRowDef="let row; columns: ['nombregrado','apellido','nombre','nombrecargo','peloton','estado','cip','acciones']"></tr>
+      </table>
+    </mat-tab>
+
+      <mat-tab label="Gama">
+        <table mat-table [dataSource]="gama" class="mat-elevation-z8">
+          <!-- Columna Nombre Grado -->
+          <ng-container matColumnDef="nombregrado">
+            <th mat-header-cell *matHeaderCellDef> Nombre Grado </th>
+            <td mat-cell *matCellDef="let item"> {{ item.nombregrado }} </td>
+          </ng-container>
+
+          <!-- Columna Apellido -->
+          <ng-container matColumnDef="apellido">
+            <th mat-header-cell *matHeaderCellDef> Apellido </th>
+            <td mat-cell *matCellDef="let item"> {{ item.apellido }} </td>
+          </ng-container>
+
+          <!-- Columna Nombre -->
+          <ng-container matColumnDef="nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let item"> {{ item.nombre }} </td>
+          </ng-container>
+
+          <!-- Columna Nombre Cargo -->
+          <ng-container matColumnDef="nombrecargo">
+            <th mat-header-cell *matHeaderCellDef> Cargo </th>
+            <td mat-cell *matCellDef="let item"> {{ item.nombrecargo }} </td>
+          </ng-container>
+
+          <!-- Columna Pelotón -->
+          <ng-container matColumnDef="peloton">
+            <th mat-header-cell *matHeaderCellDef> Pelotón </th>
+            <td mat-cell *matCellDef="let item"> {{ item.peloton }} </td>
+          </ng-container>
+
+          <!-- Columna ID Cargo -->
+
+
+
+          <!-- Columna Estado -->
+          <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef> Estado </th>
+            <td mat-cell *matCellDef="let item"> {{ item.estado }} </td>
+          </ng-container>
+
+          <!-- Columna CIP -->
+          <ng-container matColumnDef="cip">
+            <th mat-header-cell *matHeaderCellDef> CIP </th>
+            <td mat-cell *matCellDef="let item"> {{ item.cip }} </td>
+          </ng-container>
+
+          <!-- Columna Acciones -->
+          <ng-container matColumnDef="acciones">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let item">
+              <button mat-button (click)="actualizarpnp(item)">Editar</button>
+            </td>
+          </ng-container>
+
+          <!-- Fila de encabezado -->
+          <tr mat-header-row *matHeaderRowDef="['nombregrado','apellido','nombre','nombrecargo','peloton','estado','cip','acciones']"></tr>
+
+          <!-- Fila de datos -->
+          <tr class="encabezado" mat-row *matRowDef="let row; columns: ['nombregrado','apellido','nombre','nombrecargo','peloton','estado','cip','acciones']"></tr>
+        </table>
+      </mat-tab>
+
+    </mat-tab-group>
+  </mat-grid-tile>
+  <mat-grid-tile colspan="1" class="lateral"></mat-grid-tile>
+</mat-grid-list>
+
+

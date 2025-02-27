@@ -1,10 +1,30 @@
-<div class="container">
+<body>
+  <mat-toolbar class="develoer-rod">
+    <div>
+      <span>www.developer-rod-com</span>
 
-  <div>
-    <nav class="navbarmneuprincipal">
-          <button (click)="iraserviciospatrulleros()" > Servicio</button>
-          <button (click)="irpersonal()">Personal</button>
-      </nav>
-  </div>
-  <router-outlet></router-outlet>
-</div>
+    </div>
+  </mat-toolbar>
+  <mat-toolbar >
+    <div>
+      <span>Control horarios </span>
+       <mat-icon>favorite</mat-icon>
+    </div>
+    <div class="container_box">
+      <button mat-button class="menu" [matMenuTriggerFor]="menu"><mat-icon class="menu">menu</mat-icon></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item  (click)="iraserviciospatrulleros()">Servicio</button>
+        <button mat-menu-item (click)="irpersonal()">Personal</button>
+      </mat-menu>
+    </div>
+  </mat-toolbar>
+
+  <router-outlet class="router"></router-outlet>
+
+
+
+  <mat-toolbar class="footer">
+    <div></div>
+  </mat-toolbar>
+
+</body>

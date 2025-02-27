@@ -1,6 +1,9 @@
 import { NgClass } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
 import { MaterialModule } from '../../material/material.module';
 import { PnpService } from '../../servicio/pnp.service';
 import { ServiciosService } from '../../servicio/servicios.service';
@@ -18,7 +21,7 @@ import { UummdisponiblesComponent } from '../uummdisponibles/uummdisponibles.com
 @Component({
   selector: 'app-serviciospatrulleros',
   standalone: true,
-  imports: [MaterialModule, EfectivosdisponiblesComponent, NgClass,DialogsComponent],
+  imports: [MaterialModule, EfectivosdisponiblesComponent, NgClass,DialogsComponent, FormsModule,MatFormFieldModule,MatSelectModule],
   templateUrl: './serviciospatrulleros.component.html',
   styleUrl: './serviciospatrulleros.component.css'
 })
@@ -42,7 +45,9 @@ export class ServiciospatrullerosComponent {
   ngOnInit(): void {
     this.dtopnpsinparametros()
     this.mobilesdisponibles();
-  }
+    this.getpeloto()
+
+    }
 
   dataefectivosdisponibles(){
     this.servicedetalle.pnpdisponiblesporpeloton(this.peloton).subscribe(data=>{

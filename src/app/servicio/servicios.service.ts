@@ -12,8 +12,8 @@ import { Puesto } from '../dashboar/models/Puesto';
 })
 export class ServiciosService {
 
-  url:string="https://horario.developer-rod.com/api/"
-
+ url:string="https://horario.developer-rod.com/api/"
+ //url:string="http://localhost:8080/api/"
   constructor(private http:HttpClient){}
 
   listarserviciospatrullero(peloton:string): Observable<Cabecerapuesto[]> {

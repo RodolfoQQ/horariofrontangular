@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MaterialModule } from '../../material/material.module';
 import { PnpService } from '../../servicio/pnp.service';
@@ -11,9 +11,10 @@ import { Grado } from '../models/Grado';
 @Component({
   selector: 'app-personal',
   standalone: true,
-  imports: [ReactiveFormsModule, MaterialModule],
+  imports: [ReactiveFormsModule, MaterialModule,],
   templateUrl: './personal.component.html',
-  styleUrl: './personal.component.css'
+  styleUrl: './personal.component.css',
+
 })
 export class PersonalComponent {
   cargo!: Cargo[]
@@ -25,6 +26,7 @@ export class PersonalComponent {
   gama!: Dtopnp[]
   opcionvalue:boolean=false;
   postForm!: FormGroup//ReactiveFormsModule m
+   panelOpenState = signal(false);
   constructor(private servicepnp: PnpService) {
   }
 
@@ -35,6 +37,9 @@ export class PersonalComponent {
     this.listaestados();
     this.postForm = this.formulario()
     this.listapnpporpeloton()
+  }
+  cerrarpanel(){
+    this.panelOpenState = signal(false);
   }
 
   formulario(): FormGroup {
@@ -57,6 +62,8 @@ export class PersonalComponent {
 
 
   actualizarpnp(item: Dtopnp) {
+
+    this.panelOpenState.set(true);
     this.opcionvalue=true
     const cargoSeleccionado = this.cargo.find(c => c.nombrecargo === item.nombrecargo);
     const gradoSeleccionado = this.grado.find(g => g.nombregrado === item.nombregrado);
@@ -76,6 +83,7 @@ export class PersonalComponent {
 
 
 actualizar(){
+
  const data= this.postForm.value
  const cip =this.postForm.value.cip
     this.servicepnp.updatePnp(cip,data).subscribe(() => {

@@ -1,4 +1,5 @@
-*{
+
+/* *{
   font-weight: bold;
 }
 
@@ -126,4 +127,84 @@ justify-content: center;
   align-items: center;
   height: 30px;
   color: white;
+} */
+
+
+/**************/
+.servipersonal{
+  font-size: 16px;
+}
+
+
+
+.formControlName{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.outlined{
+  background: #e3ecef;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+button{
+  margin:0px 10px 0px 10px ;
+}
+mat-card{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+mat-grid-list {
+  background:white;
+}
+.lateral{
+background:white;
+}
+table{
+  background:rgb(255, 255, 255,);
+
+}
+
+.encabezado{
+
+}
+
+mat-tab-group{
+  width: 100%;
+  position: absolute;
+  top: 0;
+}
+.dynamic-height {
+  height: 100%;
+   /* Opcional: Mantiene al menos el alto de la pantalla */
+}
+
+.grid-conten{
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+}
+
+.grid-conten div{
+  border: solid 2px red;
+}
+.listdos{
+  padding-top: 1px;
+}
+.mat-tab-group{
+  position: absolute;
+  top: 0p;
+}
+::ng-deep .mat-stroked-button{
+  background: rgb(4, 255, 0);
+}
+.botonnes{
+  background: rgb(17, 10, 113);
 }
